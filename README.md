@@ -34,5 +34,6 @@ console.log(MyRandomInt()); // 0.5790662220679224
 ## Soon
  - int32 method
  - double method
+ - npm package
 
 ... what else ?
