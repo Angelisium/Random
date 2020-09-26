@@ -36,5 +36,6 @@ console.log(MyRandomInt()); // 0.5790662220679224
  - double method
  - npm package
  - custom min - max
+ - custom number type (integer, float)
 
 ... what else ?
