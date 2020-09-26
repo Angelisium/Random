@@ -50,7 +50,7 @@ const random = (function() {
                 seeds.push(mash.next(' '));
             }
     
-            seeds.map(function(seed_x) {
+            seeds = seeds.map(function(seed_x) {
                 let new_seed_x = seed_x - mash.next(seed);
                 if(new_seed_x<0) {
                     new_seed_x++;
