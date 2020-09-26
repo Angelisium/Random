@@ -38,9 +38,44 @@ const random = (function() {
         }
     }
 
-    function random() {
-        return 4;
+    class Random {
+        constructor(s) {
+            let seed = s?s: Date.now(),
+                mash = new Mash(),
+                seeds = [];
+    
+            // Apply the seeding algorithm from Baagoe.
+            // Rewritten by Angelisium.
+            for(let i=0; i<3; i++) {
+                seeds.push(mash.next(' '));
+            }
+    
+            seeds.map(function(seed_x) {
+                let new_seed_x = seed_x - mash.next(seed);
+                if(new_seed_x<0) {
+                    new_seed_x++;
+                } return new_seed_x;
+            });
+
+            // c for ? ... TODO: find a better name
+            this.c = 1;
+            this.seeds = seeds;
+        }
+        next() {
+            let first_seed = this.seeds.shift(),
+                result = 2091639 * first_seed + this.c * 2.3283064365386963e-10; // 2^-32
+            this.c = result | 0;
+            result -= this.c;
+
+            this.seeds.push(result);
+            return result;
+        }
     }
 
-    return random;
+    function init(seed) {
+        let rand = new Random(seed);
+        return rand.next;
+    }
+
+    return init;
 })();
