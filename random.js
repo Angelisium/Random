@@ -81,3 +81,7 @@ const random = (function() {
 
     return init;
 })();
+
+if(typeof module !== 'undefined' && module.exports) {
+    module.exports = random;
+}
