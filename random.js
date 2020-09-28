@@ -77,10 +77,24 @@ const random = (function() {
         } return false;
     }
 
-    function init(seed) {
-        let seed = isSeed(seed) ? seed : Date.now(),
+    function init(s) {
+        let seed = isSeed(s) ? s : Date.now(),
             rand = new Random(seed),
-            method = () => rand.next();
+            method = ()=> rand.next();
+
+        method.toRange = function(min, max) {
+            if(!Number.isInteger(min) || !Number.isInteger(max)) {
+                throw new TypeError("min or max is not a integer");
+            }
+            return Math.floor(rand.next() * (max - min)) + min;
+        };
+
+        method.toFloatRange = function(min, max) {
+            if(!Number.isInteger(min) || !Number.isInteger(max)) {
+                throw new TypeError("min or max is not a integer");
+            }
+            return Math.floor(rand.next() * (max - min)) + min;
+        };
 
         return method;
     }

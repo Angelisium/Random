@@ -22,12 +22,9 @@ for(let i=0; i<10; i++) {
     addTextNode(`\n`);
 }
 
-var rand_seed_with_option = random("seed", {
-    min: 0,
-    max: 5,
-    float: false
-});
+var randrange = random("seed");
 
 for(let i=0; i<10; i++) {
-    addTextNode(`${rand_seed_with_option()} \t`);
+    addTextNode(`${randrange.toRange(0,5)} \t`);
+    addTextNode(`${randrange.toFloatRange(0.5,5.5)} \t`);
 }
