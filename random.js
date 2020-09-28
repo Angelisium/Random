@@ -86,6 +86,9 @@ const random = (function() {
             if(!Number.isInteger(min) || !Number.isInteger(max)) {
                 throw new TypeError("min or max is not a integer");
             }
+            if(!(min<max)) {
+                throw new RangeError("")
+            }
             return Math.floor(rand.next() * (max - min)) + min;
         };
 
