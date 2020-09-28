@@ -76,7 +76,16 @@ const Random = (function() {
             return result;
         }
         toRange(min, max) {
-            return Math.floor(rand.next() * (max - min)) + min;
+            if(Number.isInteger(min) && Number.isInteger(max)) {
+                if(min < max) {
+                    return ((this.next() * (max - min)) | 0) + min;
+                } else {
+                    throw new RangeError("");
+                }
+            } else {
+
+            }
+            
         }
     }
 
