@@ -75,31 +75,9 @@ const Random = (function() {
             this.seeds.push(result);
             return result;
         }
-    }
-
-    function init(s) {
-        let seed = isSeed(s) ? s : Date.now(),
-            rand = new Random(seed),
-            method = ()=> rand.next();
-
-        method.toRange = function(min, max) {
-            if(!Number.isInteger(min) || !Number.isInteger(max)) {
-                throw new TypeError("min or max is not a integer");
-            }
-            if(!(min<max)) {
-                throw new RangeError("")
-            }
+        toRange(min, max) {
             return Math.floor(rand.next() * (max - min)) + min;
-        };
-
-        method.toFloatRange = function(min, max) {
-            if(!Number.isInteger(min) || !Number.isInteger(max)) {
-                throw new TypeError("min or max is not a integer");
-            }
-            return Math.floor(rand.next() * (max - min)) + min;
-        };
-
-        return method;
+        }
     }
 
     return Random;
