@@ -79,7 +79,7 @@ const random = (function() {
 
     function init(...params) {
         let options = (typeof params[0] === "object") ? params[0] : (params[1] && typeof params[1] === "object" ? params[1] : {}),
-            seed = isSeed(param[0]) ? param[0] : (options.seed && isSeed(options.seed) ? options.seed : Date.now());
+            seed = isSeed(params[0]) ? params[0] : (options.seed && isSeed(options.seed) ? options.seed : Date.now());
 
         let min = options.min ? Number(options.min) : 0,
             max = options.max ? Number(options.max) : 1,
