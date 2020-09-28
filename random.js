@@ -18,7 +18,13 @@
 // OUT OF OR IN  CONNECTION WITH  THE SOFTWARE  OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-const random = (function() {
+const Random = (function() {
+    function isSeed(seed) {
+        if(["number", "bigint", "string"].indexOf(typeof seed) < 0) {
+            return false;
+        } return true;
+    }
+
     class Mash {
         constructor() {
             this.n = 0xefc8249d;
@@ -71,12 +77,6 @@ const random = (function() {
         }
     }
 
-    function isSeed(seed) {
-        if(typeof seed === "number" || typeof seed === "bigint" || typeof seed === "string") {
-            return true;
-        } return false;
-    }
-
     function init(s) {
         let seed = isSeed(s) ? s : Date.now(),
             rand = new Random(seed),
@@ -102,7 +102,7 @@ const random = (function() {
         return method;
     }
 
-    return init;
+    return Random;
 })();
 
 if(typeof module !== 'undefined' && module.exports) {
