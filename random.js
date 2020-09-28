@@ -109,11 +109,12 @@ const random = (function() {
 
         let rand = new Random(seed),
             method = function() {
-                let result = rand.next() * (max - min +1);
+                /*let result = rand.next() * (max - min +1);
                 if(float === true) {
                     return decimal < 0 ? result : Math.floor(result * decimal)
                 }
-                return (float ? Math.floor(result) : result) + min;
+                return (float ? Math.floor(result) : result) + min;*/
+                return result;
             };
 
         return method;
