@@ -114,7 +114,7 @@ const random = (function() {
                     return decimal < 0 ? result : Math.floor(result * decimal)
                 }
                 return (float ? Math.floor(result) : result) + min;*/
-                return result;
+                return rand.next();
             };
 
         return method;
