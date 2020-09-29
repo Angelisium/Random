@@ -49,6 +49,8 @@ const Random = (function() {
             let mash = new Mash(),
                 seeds = [];
     
+            this.seed = seed;
+
             // Apply the seeding algorithm from Baagoe.
             // Rewritten by Angelisium.
             for(let i=0; i<3; i++) {
