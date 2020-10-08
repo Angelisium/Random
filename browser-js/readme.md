@@ -5,7 +5,7 @@ Just include the file with `<script/>` in the html :
 ```
 Then you just have to generate a new instance of `Random`.
 
-Without the seed, the function uses the Date.now() value as the seed.
+Without the seed, the function uses the `Date.now()` value as the seed.
 
 You can use the `.toRange()` and `.toFloatRange()` methods to get numbers in a specific range.
 
