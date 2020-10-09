@@ -1,5 +1,7 @@
 <?php
-	namespace Random;
 
-	// Soon
+	function Random() {
+		
+	}
+
 ?>
