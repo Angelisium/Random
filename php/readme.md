@@ -2,7 +2,7 @@
 Just include the module:
 ```php
 <?php
-	use Random;
+	include "path/random.php";
 ?>
 ```
 Then you just have to generate a new instance of `Random`.
